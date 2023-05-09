@@ -1,6 +1,5 @@
 package org.example.disruptor;
 
-import com.lmax.disruptor.BusySpinWaitStrategy;
 import com.lmax.disruptor.EventHandler;
 import com.lmax.disruptor.RingBuffer;
 import com.lmax.disruptor.YieldingWaitStrategy;
@@ -76,7 +75,7 @@ public class LongEventSceneDemo {
         Disruptor<LongEvent> disruptor = new Disruptor<>(LongEvent::new, bufferSize,
                 executor,
                 ProducerType.SINGLE, //单生产者
-                new YieldingWaitStrategy());
+                new YieldingWaitStrategy()); //注意使用对应的等待策略，使用不当会出现服务CPU飙高
         // 连接 消费者 处理器
         // 可以使用lambda来注册多个EventHandler消费者同时消费
         disruptor.handleEventsWith(

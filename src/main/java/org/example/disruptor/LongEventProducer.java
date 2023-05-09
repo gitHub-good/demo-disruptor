@@ -3,8 +3,12 @@ package org.example.disruptor;
 import com.lmax.disruptor.RingBuffer;
 
 /**
- * 事件生产者：业务代码
+ * <p>
+ * 事件生产者
+ * </p>
  *
+ * @author liangliang.xu
+ * @since 2023/5/9 16:59
  */
 public class LongEventProducer {
     private final RingBuffer<LongEvent> ringBuffer;
@@ -28,7 +32,7 @@ public class LongEventProducer {
 
             //step2: 通过序号获取 对应的 事件对象， 将数据填充到 事件对象，
             //用上面的索引，取出一个空的事件用于填充
-            LongEvent event = ringBuffer.get(sequence);// for the sequence
+            LongEvent event = ringBuffer.get(sequence);
             event.setValue(data);
         } finally {
             //step3: 再通过 序号将 事件对象 发布出去。

@@ -3,8 +3,12 @@ package org.example.disruptor;
 import com.lmax.disruptor.EventHandler;
 
 /**
- * 类似于消费者
- * disruptor会回调此处理器的方法
+ * <p>
+ *  事件消费业务逻辑 - BatchEventProcessor事件流程回调该类
+ * </p>
+ *
+ * @author liangliang.xu
+ * @since 2023/5/9 16:58
  */
 class LongEventHandlerWithName implements EventHandler<LongEvent> {
     String name;
