@@ -42,7 +42,7 @@ public class LongEventSceneDemo {
 //        testChannelModelDisruptorWithMethodRef();
 //
 //        //六边形消费处理
-        testHexagonConsumerDisruptorWithMethodRef();
+//        testHexagonConsumerDisruptorWithMethodRef();
     }
 
 
@@ -60,6 +60,10 @@ public class LongEventSceneDemo {
 
     public static void handleEvent4(LongEvent event, long sequence, boolean endOfBatch) {
         System.out.println("handleEvent4:"+event.getValue());
+    }
+
+    public static void handleEvent5(LongEvent event, long sequence, boolean endOfBatch) {
+        System.out.println("handleEvent5:"+event.getValue());
     }
 
     /**
